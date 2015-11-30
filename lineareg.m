@@ -1,0 +1,11 @@
+clc;
+clear;
+trainset=csvread('trainset.csv');
+testset=csvread('testset1.csv');
+trainx=trainset(:,1:59);
+trainy=trainset(:,60);
+testx=testset(:,1:59);
+testy=testset(:,60);
+w=(trainx'*trainx)^-1*trainx'*trainy;
+regtesty=testx*w;
+Mse=mean(regtesty-testy)^2;
