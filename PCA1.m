@@ -16,8 +16,7 @@ for i=1:numfea
 train_x(:,i)=(trainx(:,i)-meantrain(i))/stdtrain(i);
 test_x(:,i)=(testx(:,i)-meantest(i))/stdtest(i);
 end
-w=(train_x'*train_x)^-1*train_x'*trainy;
-regtrainy=train_x*w;
-regtesty=test_x*w;
-msetrain=mean(regtrainy-trainy)^2
-Mse=mean(regtesty-testy)^2;
+a=svd(train_x);
+figure(1)
+plot(a);
+%[B,Z,evals,Xrecon,mu]=pcaPmtk(train_x);
