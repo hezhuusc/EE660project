@@ -32,7 +32,7 @@ testy=preprocessing.scale(testdata_Y)
 regr = linear_model.LinearRegression()
 
 # Train the model using the training sets
-regr.fit(trainx, trainy                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      )
+regr.fit(trainx, trainy)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      )
 
 # predict
 regr_y=regr.predict(testx)

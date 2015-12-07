@@ -12,8 +12,8 @@ test_y=zeros(size(testy));
 T=1400;
 trainypopsite=find(trainy>T);
 train_y(trainypopsite)=1;
-%testypopsite=find(testy>T);
-%test_y(testypopsite)=1;
+testypopsite=find(testy>T);
+test_y(testypopsite)=1;
 %%%%
 [numsamp,numfea]=size(trainx);
 %%%normalize
@@ -27,10 +27,10 @@ bag = 1:1:5;
 Bag=1./bag;
 for i=1:numfea
 train_x(:,i)=(trainx(:,i)-meantrain(i))/stdtrain(i);
-%test_x(:,i)=(testx(:,i)-meantest(i))/stdtest(i);
+test_x(:,i)=(testx(:,i)-meantest(i))/stdtest(i);
 end
 nitr = 5;
-ntree = 15;
+ntree = 20;
 errs_test = zeros(nitr,1);
 errs_train = zeros(nitr,1);
 %for ntree = 1:1:nntree
