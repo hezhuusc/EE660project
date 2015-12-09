@@ -1,7 +1,7 @@
 clc;
 clear;
 %%load data%%%%%%
-trainset=csvread('trainset.csv');
+trainset=csvread('Validation1.csv');
 testset=csvread('testset1.csv');
 trainx=trainset(:,1:59);
 trainy=trainset(:,60);
@@ -48,9 +48,13 @@ yhatTrain = logregPredict(model1, train_x);
 errRateTrain = mean( (yhatTrain ~= train_y) );
 yhatTest = logregPredict(model1, test_x);
 errRateTest = mean( (yhatTest ~= test_y) );
+site1 = find(yhatTest(trainypopsite)==1);
+[size1,lie] = size(site1);
+[sizeall1,lie]= size(trainypopsite);
+tp=size1/sizeall1;
 figure(1)
-a1=trc1(:,22);
-a2=trc2(:,22);
+a1=trc1(:,26);
+a2=trc2(:,26);
 b1=trc1(:,27);
 b2=trc2(:,27);
 plot(a1,b1,'*');

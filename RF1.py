@@ -40,14 +40,14 @@ testx=preprocessing.scale(testdata_X)
 n_estimators = 30
 model1 = RandomForestClassifier(n_estimators=n_estimators)
 model1.fit(trainx,traindatay)
-ytree=models.predict(testx)
+ytree=model1.predict(testx)
 print ytree
 
 errtest = mean_squared_error(ytree,testdatay)
 print " errtest1",errtest
-scores = cross_val_score(model, testx, testdatay)
+scores = cross_val_score(model1, testx, testdatay)
 scores.mean()
 
-#RF2
-
 #
+a=model1.feature_importances_
+print a

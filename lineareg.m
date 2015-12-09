@@ -50,7 +50,3 @@ yhatTest = linregPredict(model1, test_x);
 regtestpopsite2=find(yhatTest>T);
 regtestreg_y2(regtestpopsite2)=1;
 errRateTest = mean( (regtestreg_y2 ~= test_y) );
-figure(1);
-%plotboundary(train_y,train_x,model1);
-a=trainx(:,26);
-b=trainy(:,27);

@@ -11,7 +11,7 @@ from sklearn.grid_search import GridSearchCV
 #Import dataset
 traindata = np.loadtxt(open('trainset.csv','r'),delimiter=",")
 
-traindata_X=traindata[:,0:58]
+traindata_X=traindata[:,0:59]
 traindata_Y=traindata[:,59]
 T=1400
 
@@ -26,7 +26,7 @@ print traindatay
 #load the test dataset
 testdata = np.loadtxt(open('testset1.csv','r'),delimiter=",")
 
-testdata_X=testdata[:,0:58]
+testdata_X=testdata[:,0:59]
 testdata_Y=testdata[:,59]
 testdatay = np.zeros(num);
 for j in range(0,num):
@@ -80,27 +80,62 @@ for model in models:
         errtest = mean_squared_error(yre,testdatay)
         print errtest
         scores = clf.score(trainx,traindatay)
-n_estimators = 50
-print n_estimators
-for model in models:
-        start = time.clock()
-        clf = clone (model)
-        clf = model.fit(trainx,traindatay)
-        yre = model.predict(testx)
-        errtest = mean_squared_error(yre,testdatay)
-        print errtest
-        scores = clf.score(trainx,traindatay)
-n_estimators = 50
-print n_estimators
-for model in models:
-        start = time.clock()
-        clf = clone (model)
-        clf = model.fit(trainx,traindatay)
-        yre = model.predict(testx)
-        errtest = mean_squared_error(yre,testdatay)
-        print errtest
-        scores = clf.score(trainx,traindatay)
+        print scores
+        stop = time.clock()
+        print "run in : %f s"%(stop - start)
 
+n_estimators = 50
+print n_estimators
+for model in models:
+        start = time.clock()
+        clf = clone (model)
+        clf = model.fit(trainx,traindatay)
+        yre = model.predict(testx)
+        errtest = mean_squared_error(yre,testdatay)
+        print errtest
+        scores = clf.score(trainx,traindatay)
+        print scores
+        stop = time.clock()
+        print "run in : %f s"%(stop - start)
+        
+n_estimators = 100
+print n_estimators
+for model in models:
+        start = time.clock()
+        clf = clone (model)
+        clf = model.fit(trainx,traindatay)
+        yre = model.predict(testx)
+        errtest = mean_squared_error(yre,testdatay)
+        print errtest
+        scores = clf.score(trainx,traindatay)
+        print scores
+        stop = time.clock()
+        print "run in : %f s"%(stop - start)
+        
+n_estimators = 200
+print n_estimators
+for model in models:
+        start = time.clock()
+        clf = clone (model)
+        clf = model.fit(trainx,traindatay)
+        yre = model.predict(testx)
+        errtest = mean_squared_error(yre,testdatay)
+        print errtest
+        scores = clf.score(trainx,traindatay)
+        print scores
+        stop = time.clock()
+        print "run in : %f s"%(stop - start)
+        
+n_estimators = 400
+print n_estimators
+for model in models:
+        start = time.clock()
+        clf = clone (model)
+        clf = model.fit(trainx,traindatay)
+        yre = model.predict(testx)
+        errtest = mean_squared_error(yre,testdatay)
+        print errtest
+        scores = clf.score(trainx,traindatay)
         print scores
         stop = time.clock()
         print "run in : %f s"%(stop - start)
